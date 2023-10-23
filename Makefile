@@ -6,37 +6,91 @@
 #    By: lduchemi <lduchemi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 18:06:49 by lduchemi          #+#    #+#              #
-#    Updated: 2023/10/19 16:27:03 by lduchemi         ###   ########.fr        #
+#    Updated: 2023/10/23 15:25:34 by lduchemi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Specify the name of the library and the compiler
 NAME = libft.a
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
 
-# List of source files and their corresponding object files
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
+FILES = ft_memset \
+		ft_bzero \
+		ft_memcpy \
+		ft_memmove \
+		ft_memchr \
+		ft_memcmp \
+		ft_strlen \
+		ft_strlcpy \
+		ft_strlcat \
+		ft_strchr \
+		ft_strrchr \
+		ft_strnstr \
+		ft_strncmp \
+		ft_atoi \
+		ft_striteri \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_toupper \
+		ft_tolower \
+		ft_calloc \
+		ft_strdup \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
+		ft_split \
+		ft_itoa \
+		ft_strmapi \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd \
 
-# Default rule to build the library
+ FILES_B = 	ft_lstnew \
+	  		ft_lstadd_front \
+ 	  		ft_lstsize \
+ 	  		ft_lstlast \
+ 	  		ft_lstadd_back \
+ 	  		ft_lstdelone \
+# 	  		ft_lstclear \
+# 	  		ft_lstiter \
+# 	  		ft_lstmap
+
+SRCS_DIR = ./
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+
+OBJS_DIR = ./
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
+OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
+
+
+.c.o: $(SRCS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(NAME): $(OBJS)
+	$(AR) $@ $^
+
+bonus: $(OBJS_B)
+	$(AR) $(NAME) $^
+
 all: $(NAME)
 
-# Clean rule to remove object files
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJS)
 
-# Fclean rule to remove object files and the library
+clean:
+	$(RM) $(OBJS) $(OBJS_B)
+
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-# Rebuild everything from scratch
-re: fclean all
+re: clean all
 
-# Rule to compile individual source files into object files
-%.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
-
-# Rule to create the library from object files
-$(NAME): $(OBJ)
-	ar rcs $@ $^
+.PHONY: bonus all clean fclean re
