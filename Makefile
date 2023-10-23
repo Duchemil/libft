@@ -6,7 +6,7 @@
 #    By: lduchemi <lduchemi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 18:06:49 by lduchemi          #+#    #+#              #
-#    Updated: 2023/10/23 15:55:09 by lduchemi         ###   ########.fr        #
+#    Updated: 2023/10/23 17:59:54 by lduchemi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,15 +52,15 @@ FILES = ft_memset \
 		ft_putendl_fd \
 		ft_putnbr_fd \
 
- FILES_B = 	ft_lstnew \
-	  		ft_lstadd_front \
- 	  		ft_lstsize \
- 	  		ft_lstlast \
- 	  		ft_lstadd_back \
- 	  		ft_lstdelone \
- 	  		ft_lstclear \
- 	  		ft_lstiter \
- 	  		ft_lstmap
+ FILES_B = 	ft_lstnew_bonus \
+	  		ft_lstadd_front_bonus \
+ 	  		ft_lstsize_bonus \
+ 	  		ft_lstlast_bonus \
+ 	  		ft_lstadd_back_bonus \
+ 	  		ft_lstdelone_bonus \
+ 	  		ft_lstclear_bonus \
+ 	  		ft_lstiter_bonus \
+ 	  		ft_lstmap_bonus
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -69,7 +69,6 @@ SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
-
 
 .c.o: $(SRCS)
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -81,9 +80,6 @@ bonus: $(OBJS_B)
 	$(AR) $(NAME) $^
 
 all: $(NAME)
-
-clean:
-	$(RM) $(OBJS)
 
 clean:
 	$(RM) $(OBJS) $(OBJS_B)
