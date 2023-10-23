@@ -6,7 +6,7 @@
 /*   By: lduchemi <lduchemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:20:50 by lduchemi          #+#    #+#             */
-/*   Updated: 2023/10/20 18:32:33 by lduchemi         ###   ########.fr       */
+/*   Updated: 2023/10/23 13:47:22 by lduchemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char			*ft_itoa(int n);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strdup(const char *s);
 char			**ft_split(char const *s, char c);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
@@ -49,5 +50,10 @@ void			*ft_memcpy(void *dest, const void *src, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t			ft_strlen(const char *s);
 void			*ft_calloc(size_t nmemb, size_t size);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *s, int fd);
+//void			ft_putendl_fd(char *s, int fd);
+//void			ft_putnbr_fd(int n, int fd);;
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
