@@ -6,7 +6,7 @@
 #    By: lduchemi <lduchemi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/17 18:06:49 by lduchemi          #+#    #+#              #
-#    Updated: 2023/10/23 15:25:34 by lduchemi         ###   ########.fr        #
+#    Updated: 2023/10/23 15:55:09 by lduchemi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,9 +58,9 @@ FILES = ft_memset \
  	  		ft_lstlast \
  	  		ft_lstadd_back \
  	  		ft_lstdelone \
-# 	  		ft_lstclear \
-# 	  		ft_lstiter \
-# 	  		ft_lstmap
+ 	  		ft_lstclear \
+ 	  		ft_lstiter \
+ 	  		ft_lstmap
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
